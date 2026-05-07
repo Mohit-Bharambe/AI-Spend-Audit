@@ -14,9 +14,11 @@
 }
 
 html {
+  scroll-behavior: smooth;
   background:
-    radial-gradient(circle at top, rgba(14, 165, 233, 0.14), transparent 32%),
-    linear-gradient(180deg, #020617 0%, #050816 55%, #020617 100%);
+    radial-gradient(circle at top, rgba(56, 189, 248, 0.18), transparent 28%),
+    radial-gradient(circle at 80% 20%, rgba(129, 140, 248, 0.14), transparent 24%),
+    linear-gradient(180deg, #020617 0%, #030712 35%, #050816 100%);
 }
 
 body {
@@ -25,6 +27,7 @@ body {
   background: transparent;
   color: #e2e8f0;
   font-family: var(--font-sans);
+  overflow-x: hidden;
 }
 
 #root {
@@ -36,12 +39,56 @@ body {
   color: white;
 }
 
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @layer components {
   .panel {
-    @apply rounded-[28px] border border-white/10 bg-white/[0.04] shadow-[0_24px_80px_rgba(2,6,23,0.55)] backdrop-blur-xl;
+    @apply rounded-[30px] border border-white/10 bg-white/[0.04] shadow-[0_28px_100px_rgba(2,6,23,0.55)] backdrop-blur-xl transition duration-300;
+  }
+
+  .panel-dark {
+    @apply rounded-[30px] border border-white/10 bg-slate-950/80 shadow-[0_30px_100px_rgba(2,6,23,0.55)];
   }
 
   .eyebrow {
     @apply inline-flex items-center rounded-full border border-cyan-300/15 bg-cyan-300/8 px-3 py-1 text-[11px] font-medium uppercase tracking-[0.24em] text-cyan-200;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-950 transition duration-300 hover:-translate-y-0.5 hover:bg-cyan-200 hover:shadow-[0_18px_40px_rgba(103,232,249,0.22)];
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center rounded-full border border-white/12 bg-white/[0.04] px-6 py-3 text-sm font-semibold text-white transition duration-300 hover:-translate-y-0.5 hover:border-cyan-300/35 hover:bg-white/[0.09];
+  }
+
+  .nav-link {
+    @apply rounded-full px-3 py-2 text-sm text-slate-400 transition duration-300 hover:bg-white/[0.05] hover:text-white;
+  }
+
+  .field-shell {
+    @apply rounded-3xl border border-white/8 bg-white/[0.03] p-4 transition duration-300 hover:border-white/12 hover:bg-white/[0.05];
+  }
+
+  .field-input {
+    @apply mt-3 w-full rounded-2xl border border-white/10 bg-slate-950/80 px-4 py-3 text-sm text-white outline-none transition duration-300 focus:border-cyan-300/35 focus:bg-slate-950;
+  }
+
+  .stat-card {
+    @apply rounded-2xl border border-white/8 bg-white/[0.03] p-4;
+  }
+
+  .animate-enter {
+    animation: fade-up 0.6s ease-out both;
   }
 }

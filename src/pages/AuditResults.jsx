@@ -65,14 +65,14 @@ function AuditResults() {
   const shouldShowCredexCta = summary.monthlySavings > 500
 
   return (
-    <section id="audit-results" className="mt-8">
-      <div className="panel relative overflow-hidden px-6 py-8 sm:px-8 sm:py-10">
+    <section id="audit-results" className="mt-10 lg:mt-14">
+      <div className="panel animate-enter relative overflow-hidden px-6 py-8 sm:px-8 sm:py-10">
         <div className="pointer-events-none absolute inset-x-0 top-0 h-64 bg-[radial-gradient(circle_at_top,_rgba(34,211,238,0.18),_transparent_60%)]" />
         <div className="relative">
           <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
             <div>
               <span className="eyebrow">Audit Results</span>
-              <h2 className="mt-4 text-3xl font-semibold tracking-[-0.05em] text-white sm:text-4xl">
+              <h2 className="mt-4 max-w-3xl text-3xl font-semibold tracking-[-0.05em] text-white sm:text-4xl">
                 You could save with a tighter AI spend setup.
               </h2>
               <p className="mt-4 max-w-2xl text-sm leading-7 text-slate-400 sm:text-base">
@@ -81,12 +81,12 @@ function AuditResults() {
               </p>
             </div>
             <div className="rounded-3xl border border-cyan-300/15 bg-cyan-300/10 px-5 py-4 text-sm text-cyan-100">
-              Team size: {teamSize} {'·'} Use case: {primaryUseCase}
+              Team size: {teamSize} / Use case: {primaryUseCase}
             </div>
           </div>
 
           <div className="mt-8 grid gap-4 lg:grid-cols-[0.9fr_1.1fr]">
-            <div className="rounded-[30px] border border-white/10 bg-slate-950/80 p-6 shadow-[0_30px_100px_rgba(2,6,23,0.55)]">
+            <div className="panel-dark p-6">
               <p className="text-sm uppercase tracking-[0.2em] text-slate-500">
                 You Could Save
               </p>
@@ -98,7 +98,7 @@ function AuditResults() {
               </p>
 
               <div className="mt-8 grid gap-3 sm:grid-cols-2">
-                <div className="rounded-2xl border border-white/8 bg-white/[0.03] p-4">
+                <div className="stat-card">
                   <p className="text-xs uppercase tracking-[0.18em] text-slate-500">
                     Current Spend
                   </p>
@@ -106,7 +106,7 @@ function AuditResults() {
                     {formatCurrency(summary.currentSpend)}
                   </p>
                 </div>
-                <div className="rounded-2xl border border-white/8 bg-white/[0.03] p-4">
+                <div className="stat-card">
                   <p className="text-xs uppercase tracking-[0.18em] text-slate-500">
                     Recommended Spend
                   </p>
@@ -117,13 +117,13 @@ function AuditResults() {
               </div>
             </div>
 
-            <div className="rounded-[30px] border border-white/10 bg-white/[0.03] p-6">
+            <div className="panel p-6">
               <p className="text-sm font-medium text-white">Recommendations</p>
               <div className="mt-5 space-y-3">
                 {auditedTools.map((toolEntry) => (
                   <div
                     key={`${toolEntry.tool}-${toolEntry.plan}`}
-                    className="rounded-2xl border border-white/8 bg-slate-950/70 p-4"
+                    className="rounded-2xl border border-white/8 bg-slate-950/70 p-4 transition duration-300 hover:border-cyan-300/18"
                   >
                     <p className="text-sm font-medium text-white">
                       {toolEntry.audit.recommendation}
@@ -138,7 +138,7 @@ function AuditResults() {
           </div>
 
           <div className="mt-8">
-            <div className="mb-5 flex items-center justify-between">
+            <div className="mb-5 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
               <h3 className="text-2xl font-semibold tracking-[-0.04em] text-white">
                 Per Tool Cards
               </h3>
@@ -157,7 +157,7 @@ function AuditResults() {
                 return (
                   <article
                     key={`${toolEntry.tool}-${toolEntry.plan}-card`}
-                    className="group rounded-[28px] border border-white/10 bg-gradient-to-br from-white/[0.05] to-transparent p-6 transition duration-300 hover:-translate-y-1 hover:border-cyan-300/20"
+                    className="group rounded-[28px] border border-white/10 bg-gradient-to-br from-white/[0.05] via-white/[0.03] to-transparent p-6 transition duration-300 hover:-translate-y-1 hover:border-cyan-300/20"
                   >
                     <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
                       <div>
@@ -168,7 +168,7 @@ function AuditResults() {
                           {buildTransitionLabel(toolEntry)}
                         </h4>
                       </div>
-                      <div className="rounded-2xl border border-emerald-400/20 bg-emerald-400/10 px-4 py-3 text-right">
+                      <div className="rounded-2xl border border-emerald-400/20 bg-emerald-400/10 px-4 py-3 text-right shadow-[0_12px_24px_rgba(16,185,129,0.12)]">
                         <p className="text-xs uppercase tracking-[0.18em] text-emerald-200/80">
                           Monthly Savings
                         </p>
@@ -179,7 +179,7 @@ function AuditResults() {
                     </div>
 
                     <div className="mt-6 grid gap-3 sm:grid-cols-3">
-                      <div className="rounded-2xl border border-white/8 bg-slate-950/70 p-4">
+                      <div className="stat-card bg-slate-950/70">
                         <p className="text-xs uppercase tracking-[0.18em] text-slate-500">
                           Current Spend
                         </p>
@@ -187,7 +187,7 @@ function AuditResults() {
                           {formatCurrency(currentSpend)}
                         </p>
                       </div>
-                      <div className="rounded-2xl border border-white/8 bg-slate-950/70 p-4">
+                      <div className="stat-card bg-slate-950/70">
                         <p className="text-xs uppercase tracking-[0.18em] text-slate-500">
                           Recommended Spend
                         </p>
@@ -195,7 +195,7 @@ function AuditResults() {
                           {formatCurrency(recommendedSpend)}
                         </p>
                       </div>
-                      <div className="rounded-2xl border border-white/8 bg-slate-950/70 p-4">
+                      <div className="stat-card bg-slate-950/70">
                         <p className="text-xs uppercase tracking-[0.18em] text-slate-500">
                           Annual Savings
                         </p>
@@ -219,7 +219,7 @@ function AuditResults() {
             </div>
           </div>
 
-          <div className="mt-8 rounded-[30px] border border-white/10 bg-slate-950/80 px-6 py-8 text-center">
+          <div className="panel-dark mt-8 px-6 py-8 text-center">
             <p className="text-sm uppercase tracking-[0.2em] text-slate-500">
               CTA
             </p>
@@ -233,10 +233,7 @@ function AuditResults() {
                   deliberate credits and vendor review before the next billing
                   cycle closes.
                 </p>
-                <button
-                  type="button"
-                  className="mt-8 rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-slate-200"
-                >
+                <button type="button" className="btn-primary mt-8">
                   Talk to Credex
                 </button>
               </>
