@@ -50,43 +50,134 @@ body {
 
 @layer components {
   .panel {
-    @apply rounded-[32px] border border-slate-200 bg-white shadow-[0_8px_30px_rgb(0,0,0,0.04)] transition duration-300;
+    border-radius: 32px;
+    border: 1px solid #e2e8f0; /* slate-200 */
+    background-color: #ffffff;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .panel-dark {
-    @apply rounded-[32px] border border-slate-900 bg-slate-900 shadow-[0_30px_60px_rgba(15,23,42,0.15)];
+    border-radius: 32px;
+    border: 1px solid #0f172a; /* slate-900 */
+    background-color: #0f172a;
+    box-shadow: 0 30px 60px rgba(15, 23, 42, 0.15);
   }
 
   .eyebrow {
-    @apply inline-flex items-center rounded-full border border-blue-100 bg-blue-50/50 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-blue-600;
+    display: inline-flex;
+    align-items: center;
+    border-radius: 9999px;
+    border: 1px solid #dbeafe; /* blue-100 */
+    background-color: rgba(239, 246, 255, 0.5); /* blue-50/50 */
+    padding: 0.25rem 0.75rem;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: #2563eb; /* blue-600 */
   }
 
   .btn-primary {
-    @apply inline-flex items-center justify-center rounded-full bg-slate-900 px-6 py-3 text-sm font-semibold text-white transition duration-300 hover:-translate-y-0.5 hover:bg-slate-800 hover:shadow-[0_12px_24px_rgba(15,23,42,0.15)];
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9999px;
+    background-color: #0f172a; /* slate-900 */
+    padding: 0.75rem 1.5rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #ffffff;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    background-color: #1e293b; /* slate-800 */
+    box-shadow: 0 12px 24px rgba(15, 23, 42, 0.15);
   }
 
   .btn-secondary {
-    @apply inline-flex items-center justify-center rounded-full border border-slate-200 bg-white px-6 py-3 text-sm font-semibold text-slate-700 transition duration-300 hover:-translate-y-0.5 hover:border-slate-300 hover:bg-slate-50;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9999px;
+    border: 1px solid #e2e8f0; /* slate-200 */
+    background-color: #ffffff;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #334155; /* slate-700 */
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+  }
+
+  .btn-secondary:hover {
+    transform: translateY(-2px);
+    border-color: #cbd5e1; /* slate-300 */
+    background-color: #f8fafc; /* slate-50 */
   }
 
   .nav-link {
-    @apply rounded-full px-4 py-2 text-sm font-medium text-slate-500 transition duration-300 hover:bg-slate-100 hover:text-slate-900;
+    border-radius: 9999px;
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #64748b; /* slate-500 */
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    text-decoration: none;
+  }
+
+  .nav-link:hover {
+    background-color: #f1f5f9; /* slate-100 */
+    color: #0f172a; /* slate-900 */
   }
 
   .field-shell {
-    @apply flex flex-col rounded-2xl border border-slate-200 bg-white p-4 transition duration-300 hover:border-blue-300/50 hover:shadow-sm;
+    display: flex;
+    flex-direction: column;
+    border-radius: 1rem;
+    border: 1px solid #e2e8f0; /* slate-200 */
+    background-color: #ffffff;
+    padding: 1rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .field-shell:hover {
+    border-color: rgba(147, 197, 253, 0.5); /* blue-300/50 */
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
   }
 
   .field-input {
-    @apply mt-2 w-full rounded-xl border border-slate-100 bg-slate-50 px-4 py-2.5 text-sm text-slate-900 outline-none transition duration-300 focus:border-blue-400 focus:bg-white focus:ring-4 focus:ring-blue-50;
+    margin-top: 0.5rem;
+    width: 100%;
+    border-radius: 0.75rem;
+    border: 1px solid #f1f5f9; /* slate-100 */
+    background-color: #f8fafc; /* slate-50 */
+    padding: 0.625rem 1rem;
+    font-size: 0.875rem;
+    color: #0f172a; /* slate-900 */
+    outline: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .field-input:focus {
+    border-color: #60a5fa; /* blue-400 */
+    background-color: #ffffff;
+    box-shadow: 0 0 0 4px #eff6ff; /* blue-50 ring */
   }
 
   .stat-card {
-    @apply rounded-2xl border border-slate-100 bg-slate-50/50 p-4;
+    border-radius: 1rem;
+    border: 1px solid #f1f5f9; /* slate-100 */
+    background-color: rgba(248, 250, 252, 0.5); /* slate-50/50 */
+    padding: 1rem;
   }
 
   .animate-enter {
     animation: fade-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
   }
 }
+
 
