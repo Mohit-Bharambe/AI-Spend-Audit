@@ -6,13 +6,36 @@ import { generateAudit } from '../utils/auditEngine';
 import { getTotalMonthlySavings, getAnnualSavings, isHighSavings } from '../utils/calculateSavings';
 import { mockInput } from '../data/mockAuditInput';
 import { getAiAuditSummary } from '../services/aiSummary';
+import LeadCapture from '../components/LeadCapture';
 
 const ResultsPage: React.FC = () => {
   const [aiSummary, setAiSummary] = useState<string>('');
   const [isLoadingSummary, setIsLoadingSummary] = useState<boolean>(true);
+  
+  // Real app data from local storage
+  const [storedTools] = useState(() => {
+    if (typeof window !== 'undefined') return JSON.parse(localStorage.getItem('audit-tools') || '[]');
+    return [];
+  });
+  const [storedTeamSize] = useState(() => {
+    if (typeof window !== 'undefined') return Number(localStorage.getItem('audit-team-size')) || 12;
+    return 12;
+  });
+  const [primaryUseCase] = useState(() => {
+    if (typeof window !== 'undefined') return localStorage.getItem('audit-primary-use-case') || 'Coding';
+    return 'Coding';
+  });
 
-  // In a real app, we'd get this from local storage or context
-  const auditResults = generateAudit(mockInput);
+  // Use stored tools if available, otherwise fallback to mock for the demo
+  const toolsToAudit = storedTools.length > 0 ? storedTools.map((t: any) => ({
+    tool: t.tool,
+    plan: t.plan,
+    monthlySpend: Number(t.spend) || 0,
+    seats: Number(t.seats) || 1,
+    useCase: primaryUseCase
+  })) : mockInput;
+
+  const auditResults = generateAudit(toolsToAudit);
   const monthlySavings = getTotalMonthlySavings(auditResults);
   const annualSavings = getAnnualSavings(monthlySavings);
   const isHigh = isHighSavings(monthlySavings);
@@ -28,7 +51,7 @@ const ResultsPage: React.FC = () => {
       }
     }
     fetchSummary();
-  }, []);
+  }, [auditResults]);
 
   return (
     <Layout>
@@ -81,7 +104,7 @@ const ResultsPage: React.FC = () => {
           </div>
         </section>
 
-        {/* AI SUMMARY & CTA */}
+        {/* AI SUMMARY & LEAD CAPTURE */}
         <section className="grid gap-6 lg:grid-cols-2">
           <div className="panel bg-slate-50/50 p-8 border-dashed border-2">
             <h3 className="text-lg font-bold text-slate-900">AI Intelligence Summary</h3>
@@ -100,19 +123,7 @@ const ResultsPage: React.FC = () => {
             </div>
           </div>
 
-          <div className={`panel p-8 transition-all ${isHigh ? 'bg-blue-600 text-white shadow-blue-200' : 'bg-white border-slate-200'}`}>
-            <h3 className={`text-xl font-bold ${isHigh ? 'text-white' : 'text-slate-900'}`}>
-              {isHigh ? 'Unlock Enterprise Credits' : 'Ready to Optimize?'}
-            </h3>
-            <p className={`mt-4 text-sm leading-relaxed ${isHigh ? 'text-blue-100' : 'text-slate-600'}`}>
-              {isHigh 
-                ? "Your savings potential is massive. Credex can help you secure up to $50,000 in AI credits to offset your infrastructure costs immediately."
-                : "While your stack is relatively lean, there are still ways to tighten your procurement cycle and prevent future waste."}
-            </p>
-            <button className={`mt-8 w-full rounded-full py-4 text-sm font-bold transition-all ${isHigh ? 'bg-white text-blue-600 hover:scale-[1.02]' : 'bg-slate-900 text-white hover:bg-slate-800'}`}>
-              {isHigh ? 'Talk to Credex Experts' : 'Schedule Procurement Review'}
-            </button>
-          </div>
+          <LeadCapture auditData={auditResults} teamSize={storedTeamSize} />
         </section>
       </div>
     </Layout>
