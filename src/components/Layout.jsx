@@ -3,10 +3,9 @@ import Navbar from './Navbar'
 function Layout({ children }) {
   return (
     <div className="relative min-h-screen overflow-hidden">
-      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,rgba(148,163,184,0.07)_1px,transparent_1px),linear-gradient(to_bottom,rgba(148,163,184,0.07)_1px,transparent_1px)] bg-[size:72px_72px] opacity-[0.12]" />
-      <div className="pointer-events-none absolute inset-x-0 top-[-12rem] h-[28rem] bg-[radial-gradient(circle,_rgba(59,130,246,0.18),_transparent_62%)] blur-3xl" />
-      <div className="pointer-events-none absolute left-[-12rem] top-[18rem] h-[24rem] w-[24rem] rounded-full bg-cyan-400/8 blur-3xl" />
-      <div className="pointer-events-none absolute right-[-10rem] top-[40rem] h-[24rem] w-[24rem] rounded-full bg-indigo-400/8 blur-3xl" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] bg-[size:32px_32px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-40" />
+      <div className="pointer-events-none absolute inset-x-0 top-[-10rem] h-[30rem] bg-[radial-gradient(circle,_rgba(59,130,246,0.06),_transparent_70%)] blur-3xl" />
+      <div className="pointer-events-none absolute left-[-10rem] top-[20rem] h-[25rem] w-[25rem] rounded-full bg-blue-100/30 blur-3xl" />
 
       <div className="relative mx-auto flex min-h-screen max-w-7xl flex-col px-4 pb-12 pt-4 sm:px-6 lg:px-8">
         <Navbar />
@@ -15,5 +14,6 @@ function Layout({ children }) {
     </div>
   )
 }
+
 
 export default Layout

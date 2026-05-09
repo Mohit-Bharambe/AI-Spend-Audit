@@ -91,11 +91,11 @@ function Home() {
         <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <span className="eyebrow">Features</span>
-            <h2 className="mt-4 max-w-3xl text-3xl font-semibold tracking-[-0.05em] text-white sm:text-4xl">
-              Built for fast-moving startups with too many AI bills.
+            <h2 className="mt-4 max-w-3xl text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+              Built for fast-moving startups <br className="hidden sm:block" /> with too many AI bills.
             </h2>
           </div>
-          <p className="max-w-xl text-sm leading-7 text-slate-400 sm:text-base">
+          <p className="max-w-xl text-base leading-7 text-slate-600">
             A focused landing page for product-led SaaS buyers who want clarity
             before finance, founders, and ops lose track of what they are paying
             for.
@@ -106,27 +106,27 @@ function Home() {
           {features.map((feature) => (
             <article
               key={feature.title}
-              className="group panel relative overflow-hidden px-6 py-6 hover:-translate-y-1 hover:border-cyan-300/25 hover:bg-white/[0.06]"
+              className="group panel relative overflow-hidden px-6 py-6 hover:-translate-y-1 hover:border-blue-400/30 hover:shadow-lg"
             >
               <div
-                className={`pointer-events-none absolute inset-0 bg-gradient-to-br ${feature.accent} opacity-70 transition duration-300 group-hover:opacity-100`}
+                className={`pointer-events-none absolute inset-0 bg-gradient-to-br ${feature.accent} opacity-40 transition duration-300 group-hover:opacity-60`}
               />
               <div className="relative">
-                <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-white/6 text-xs font-semibold tracking-[0.18em] text-white">
+                <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl border border-slate-200 bg-white text-xs font-bold tracking-wider text-slate-900 shadow-sm">
                   {feature.title
                     .split(' ')
                     .map((word) => word[0])
                     .join('')
                     .slice(0, 2)}
                 </div>
-                <h3 className="text-xl font-semibold text-white">
+                <h3 className="text-xl font-bold text-slate-900">
                   {feature.title}
                 </h3>
-                <p className="mt-3 text-sm leading-7 text-slate-400">
+                <p className="mt-3 text-sm leading-7 text-slate-600">
                   {feature.description}
                 </p>
-                <div className="mt-5 h-px w-full bg-gradient-to-r from-white/14 to-transparent" />
-                <p className="mt-4 text-xs uppercase tracking-[0.2em] text-slate-500">
+                <div className="mt-5 h-px w-full bg-slate-200/60" />
+                <p className="mt-4 text-[10px] font-bold uppercase tracking-wider text-slate-400">
                   Practical savings signal
                 </p>
               </div>
@@ -138,32 +138,31 @@ function Home() {
       <section id="supported-tools" className="mt-10 grid gap-4 lg:mt-14 lg:grid-cols-[0.85fr_1.15fr]">
         <div className="panel px-6 py-7">
           <span className="eyebrow">Supported Tools</span>
-          <h2 className="mt-4 text-3xl font-semibold tracking-[-0.05em] text-white sm:text-4xl">
-            Works across the AI products your team is already paying for.
+          <h2 className="mt-4 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+            Works across your AI products.
           </h2>
-          <p className="mt-4 text-sm leading-7 text-slate-400">
+          <p className="mt-4 text-base leading-7 text-slate-600">
             Review spend across chat tools, coding copilots, and AI workspaces
             in one place without forcing a heavyweight rollout first.
           </p>
         </div>
 
-        <div className="panel px-6 py-7">
+        <div className="panel bg-slate-50/30 px-6 py-7">
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-3">
             {tools.map((tool) => (
               <div
                 key={tool.name}
-                className={`group rounded-3xl border border-white/8 bg-gradient-to-br ${tool.tone} px-5 py-5 text-left transition duration-300 hover:-translate-y-1 hover:border-cyan-300/20 hover:bg-white/[0.05]`}
+                className={`group rounded-3xl border border-slate-200 bg-white px-5 py-5 text-left transition duration-300 hover:-translate-y-1 hover:border-blue-400/30 hover:shadow-md`}
               >
-                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-slate-950/70 text-xs font-semibold tracking-[0.16em] text-white shadow-[0_12px_24px_rgba(2,6,23,0.28)]">
+                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl border border-slate-100 bg-slate-900 text-xs font-bold tracking-wider text-white shadow-sm">
                   {tool.mark}
                 </div>
-                <p className="text-sm font-medium text-slate-100">
+                <p className="text-sm font-bold text-slate-900">
                   {tool.name}
                 </p>
-                <p className="mt-1 text-xs uppercase tracking-[0.18em] text-slate-500">
+                <p className="mt-1 text-[10px] font-bold uppercase tracking-wider text-slate-400">
                   Spend ready
                 </p>
-                <div className="mt-4 h-px w-full bg-gradient-to-r from-white/12 to-transparent" />
               </div>
             ))}
           </div>
@@ -173,51 +172,51 @@ function Home() {
       <section id="benefits" className="mt-10 grid gap-4 lg:mt-14 lg:grid-cols-[1.05fr_0.95fr]">
         <div className="panel px-6 py-7">
           <span className="eyebrow">Benefits</span>
-          <h2 className="mt-4 text-3xl font-semibold tracking-[-0.05em] text-white sm:text-4xl">
-            Less AI waste. Better purchasing decisions.
+          <h2 className="mt-4 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+            Less AI waste. <br /> Better purchasing decisions.
           </h2>
           <div className="mt-6 space-y-3">
             {benefits.map((benefit, index) => (
               <div
                 key={benefit}
-                className="flex items-start gap-4 rounded-2xl border border-white/8 bg-white/[0.03] p-4 transition duration-300 hover:border-cyan-300/18 hover:bg-white/[0.05]"
+                className="flex items-start gap-4 rounded-2xl border border-slate-100 bg-slate-50/50 p-4 transition duration-300 hover:border-blue-200 hover:bg-white"
               >
-                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-cyan-300/20 bg-cyan-300/10 text-sm font-semibold text-cyan-200">
+                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-blue-200 bg-blue-50 text-sm font-bold text-blue-600">
                   0{index + 1}
                 </div>
-                <p className="text-sm leading-7 text-slate-300">{benefit}</p>
+                <p className="text-sm leading-7 text-slate-600 font-medium">{benefit}</p>
               </div>
             ))}
           </div>
         </div>
 
-        <div className="panel-dark flex flex-col justify-between px-6 py-7">
+        <div className="panel bg-slate-900 flex flex-col justify-between px-6 py-7 shadow-xl">
           <div>
-            <p className="text-sm uppercase tracking-[0.22em] text-slate-500">
-              Example result
+            <p className="text-[10px] font-bold uppercase tracking-wider text-slate-400">
+              Average result
             </p>
-            <p className="mt-4 text-5xl font-semibold tracking-[-0.06em] text-white sm:text-6xl">
+            <p className="mt-4 text-5xl font-bold tracking-tight text-white sm:text-6xl">
               27%
             </p>
-            <p className="mt-3 text-sm leading-7 text-slate-400">
+            <p className="mt-4 text-sm leading-7 text-slate-300">
               average waste uncovered from duplicate seats, unused licenses, and
               untracked API usage in early-stage teams.
             </p>
           </div>
-          <div className="mt-8 h-2 rounded-full bg-white/8">
-            <div className="h-2 w-[68%] rounded-full bg-cyan-300" />
+          <div className="mt-8 h-2 rounded-full bg-white/10">
+            <div className="h-2 w-[68%] rounded-full bg-blue-400 shadow-[0_0_12px_rgba(96,165,250,0.4)]" />
           </div>
         </div>
       </section>
 
       <section id="cta" className="mt-10 lg:mt-14">
-        <div className="panel relative overflow-hidden px-6 py-8 text-center sm:px-8 sm:py-10">
-          <div className="pointer-events-none absolute inset-x-0 top-0 h-40 bg-[radial-gradient(circle_at_top,_rgba(56,189,248,0.14),_transparent_60%)]" />
+        <div className="panel relative overflow-hidden bg-slate-50/50 px-6 py-8 text-center sm:px-8 sm:py-10 border-slate-200">
+          <div className="pointer-events-none absolute inset-x-0 top-0 h-40 bg-[radial-gradient(circle_at_top,_rgba(59,130,246,0.05),_transparent_60%)]" />
           <span className="eyebrow">CTA</span>
-          <h2 className="relative mt-4 text-3xl font-semibold tracking-[-0.05em] text-white sm:text-4xl">
-            Know where your AI budget leaks before the next renewal cycle.
+          <h2 className="relative mt-4 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+            Know where your AI budget leaks <br className="hidden sm:block" /> before the next renewal cycle.
           </h2>
-          <p className="relative mx-auto mt-4 max-w-2xl text-sm leading-7 text-slate-400 sm:text-base">
+          <p className="relative mx-auto mt-4 max-w-2xl text-base leading-7 text-slate-600">
             Run a fast audit, identify wasted seats, and tighten your AI stack
             without adding procurement drag.
           </p>
@@ -229,17 +228,17 @@ function Home() {
 
       <footer
         id="footer"
-        className="mt-10 flex flex-col gap-4 border-t border-white/8 px-2 py-6 text-sm text-slate-500 sm:mt-14 sm:flex-row sm:items-center sm:justify-between"
+        className="mt-10 flex flex-col gap-4 border-t border-slate-200 px-2 py-8 text-xs font-bold uppercase tracking-widest text-slate-400 sm:mt-14 sm:flex-row sm:items-center sm:justify-between"
       >
-        <p>AI Spend Audit</p>
-        <div className="flex gap-5">
-          <a href="#features" className="transition hover:text-slate-300">
+        <p>Spend Audit &copy; 2026</p>
+        <div className="flex gap-6">
+          <a href="#features" className="transition hover:text-slate-900">
             Features
           </a>
-          <a href="#supported-tools" className="transition hover:text-slate-300">
+          <a href="#supported-tools" className="transition hover:text-slate-900">
             Tools
           </a>
-          <a href="#cta" className="transition hover:text-slate-300">
+          <a href="#cta" className="transition hover:text-slate-900">
             Audit
           </a>
         </div>
@@ -247,5 +246,6 @@ function Home() {
     </Layout>
   )
 }
+
 
 export default Home
