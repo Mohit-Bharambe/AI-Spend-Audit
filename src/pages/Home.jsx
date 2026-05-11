@@ -2,7 +2,7 @@ import AuditResults from './AuditResults'
 import Hero from '../components/Hero'
 import Layout from '../components/Layout'
 import SpendForm from '../components/SpendForm'
-import { Helmet } from 'react-helmet'
+import { Helmet } from 'react-helmet-async'
 
 const features = [
   {
