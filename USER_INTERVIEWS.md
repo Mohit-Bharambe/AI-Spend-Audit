@@ -1,24 +1,28 @@
 # User Interviews & Market Research
 
-This document captures the qualitative feedback and pain points gathered during early-stage customer discovery for SpendLens.
+This document captures raw, unfiltered feedback from early customer discovery. These conversations highlight the "messy" reality of AI spend where emotions often contradict financial logic.
 
-## Interview 1: Seed-Stage Founder (FinTech)
-**Team Size:** 12
-**Key Pain Point:** "I have no idea who is using what. I see $20-$40 charges hitting the corporate card every few days for Cursor, Claude, and some niche AI video tools. It's not the individual price that hurts, it's the fact that I'm likely paying for five different versions of the same core capability."
+## Interview 1: Jay Prajapati (Full-stack Developer)
+**Monthly Spend:** ~$60 (Cursor Pro, ChatGPT Plus, OpenAI API)
+**Tracking:** "Honestly? I don't. It just hits my corporate card and I archive the email without looking."
+**Key Frustrations:** "I feel like a sucker paying for ChatGPT Plus when I have Cursor Pro, but the second I think about cancelling, I remember that one time Claude 3.5 went down and I needed a fallback. It's a waste, but I'm too scared to cut the cord."
+**The Contradiction:** Jay complains about "fragmented billing" and says he wants to save money, but in the same breath, he admits he'd pay for a third redundant tool if it had a slightly better dark mode.
 
-**Primary Takeaway:** Founders are seeking a "Single Pane of Glass" for AI spend visibility to regain control over fragmented expenses.
+## Interview 2: Keval Shah (Mutual Fund Distributor)
+**Monthly Spend:** ~$100 (Claude Opus, Gemini Advanced, Perplexity Pro)
+**Tracking:** "I'm a finance guy. I track everything in a custom spreadsheet. But the AI bills are the only thing that never match my records because of variable credit usage."
+**Key Frustrations:** "Lack of transparency in credit burn. I get a notification that my 'Usage is at 80%' but I have no way to audit *what* used those credits. Was it a long PDF summary or a hundred small chats? No one knows."
+**The Contradiction:** Keval is a perfectionist about his spreadsheets and ROI, yet he currently pays for three different "Pro" LLMs that essentially do the same job for his research, simply because "it feels safer to have options."
 
-## Interview 2: VP Engineering (B2B SaaS)
-**Team Size:** 45
-**Key Pain Point:** "We migrated the whole engineering team to Cursor Business for the privacy features, but I still see 15 developers expensing personal ChatGPT Plus accounts. They claim they 'prefer the UI' or need the specific GPT-4o limits. That's hundreds of dollars in pure overlap that I can't justify during a burn-reduction cycle."
+## Interview 3: Ghunal Bakshe (Senior Developer)
+**Monthly Spend:** ~$40 (Claude Pro, Individual Copilot)
+**Tracking:** "None. My company provides a free Enterprise Copilot license, but I still pay for my own Claude and personal Copilot on the side."
+**Key Frustrations:** "Corporate procurement. To get the company to pay for Claude, I'd have to talk to IT, HR, and my manager. I'd rather just lose $20 a month than deal with that friction. But I still complain about the price of my subscriptions every time I see my bank statement."
+**The Contradiction:** Ghunal uses his "personal" tools for 90% of his work, effectively subsidizing his company's productivity with his own salary, while simultaneously asking for a raise to "cover the rising cost of living."
 
-**Primary Takeaway:** Tier overlap and redundant subscription detection is the "Killer Feature" for mid-sized engineering teams.
+---
 
-## Interview 3: Operations Manager (Web3 Startup)
-**Team Size:** 8
-**Key Pain Point:** "We signed up for an Enterprise AI plan early because we wanted the SOC2 compliance and security features, but we're only using 8 seats while paying for the 20-seat minimum. We are literally burning over $1,000 every month on empty air just to keep the compliance checkmark."
-
-**Primary Takeaway:** Identifying seat-minimum waste on high-tier plans is the fastest way to surface immediate ROI for SpendLens users.
-
-## Research Conclusion
-The "AI Wild West" is in full swing. Startups are prioritizing speed and developer velocity over procurement rigor. SpendLens provides that missing rigor—identifying waste, overlaps, and over-provisioning—without the friction or drag of a traditional enterprise procurement platform.
+### Core Research Takeaways
+1. **Convenience > Cost:** Users are willing to overpay if it avoids "administrative drag" or provides "redundancy security."
+2. **Invisible Waste:** Almost every user interviewed had at least one $20/mo subscription they hadn't used in over 30 days but "might need next week."
+3. **The Audit Gap:** People *know* they are wasting money, but the effort required to audit and cancel is currently higher than the pain of the $20 charge. SpendLens bridges this gap by making the audit instant.
